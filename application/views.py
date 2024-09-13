@@ -1,12 +1,12 @@
-from django.http import HttpResponse
+from django.views.generic import TemplateView
 from django.template import loader
 from django.core.serializers import serialize
 
 from .models import Member
     
-def index(request):
-    all_members = Member.objects.all()
-    template = loader.get_template("index.html")
-    context = {"store":  serialize("json", all_members)}
+class IndexView(TemplateView):
+    template_name = "index.html"
     
-    return HttpResponse(template.render(context, request))
+    def get_context_data(self, **kwargs):
+        kwargs["store"] = serialize("json", Member.objects.all())
+        return super().get_context_data(**kwargs)
