@@ -1,0 +1,9 @@
+# Python environment
+venv/
+*.pyc
+
+# OSX
+.DS_Store
+
+# Database
+*.sqlite3
