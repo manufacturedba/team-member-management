@@ -1,8 +1,13 @@
+# Overview
+
+`project/` directory contains typical Django project structure.
+`application/` directory contains backend application code
+`frontend/` directory is client-code for SPA
+
 # Installing
 
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-django-admin startproject midtier
+`pip install -r requirements.txt`
 
 # Running
+
+`python manage.py runserver`
