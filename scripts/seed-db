@@ -1,10 +1,49 @@
 #!/usr/bin/env python
-
+import sys
+import os
 from django.conf import settings
 from django import setup
 
-settings.configure()
+# print(sys.path)
+
+# sys.path.append(os.path.join(sys.path[0], '../'))
+
+# settings.configure()
 setup()
 
-object = Member(first_name='John', last_name='Doe')
-object.save()
+from application.models import Member
+
+seed_members = [
+    {
+        "first_name": "Arthur",
+        "last_name": "Doe",
+        "email": "arthur@is.social",
+        "phone_number": "123-456-7890"
+    },
+    {
+        "first_name": "Cindy",
+        "last_name": "Doe",
+        "email": "cindy@is.social",
+        "phone_number": "123-456-7890"
+    },
+    {
+        "first_name": "Bob",
+        "last_name": "Doe",
+        "email": "bob@is.social",
+        "phone_number": "123-456-7890"
+    },
+    {
+        "first_name": "Dan",
+        "last_name": "Doe",
+        "email": "dan@is.social",
+        "phone_number": "123-456-7890"
+    },
+]
+
+def create_member(first_name, last_name, email, phone_number):
+    object = Member(first_name=first_name, last_name=last_name, email=email, phone_number=phone_number)
+    object.save()
+
+
+for member in seed_members:
+    create_member(member["first_name"], member["last_name"], member["email"], member["phone_number"])
