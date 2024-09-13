@@ -1,7 +1,7 @@
 <h1>List page</h1>
 <div>
     <h2>Team members</h2>
-    <span>You have x team members.</span>
+    <span>You have {{@model.length}} team members.</span>
     <hr />
     {{#each @model as |member|}}
     <li>{{member.first_name}} {{member.last_name}}</li>
