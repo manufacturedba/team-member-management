@@ -1,14 +1,6 @@
 import Route from '@ember/routing/route';
 import { readStore } from 'frontend/util/read-store';
-
-type MemberModel = {
-  fields: {
-    first_name: string;
-    last_name: string;
-    email: string;
-    phone_number: string;
-  };
-};
+import type { MemberModel } from 'frontend/types/member-model';
 
 export default class ListRoute extends Route {
   model() {
