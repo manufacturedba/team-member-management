@@ -9,4 +9,3 @@ class Member(models.Model):
     last_name = models.CharField(max_length=3000)
     email = models.EmailField()
     phone_number = models.CharField(max_length=3000)
-    profile_image = models.CharField(max_length=3000) # TODO: Switch to ImageField
