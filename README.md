@@ -19,3 +19,16 @@ As a first-time setup, tables need to be generated for both the application and 
 
 `source .envrc` to set environment variables needed by server and frontend
 `python manage.py runserver`
+
+# Testing
+
+Tests are broken up into server-side model and view tests and client-side presentational tests. They are in `application/tests.py` and `frontend/tests/` respectively.
+
+### Server-side
+
+`python manage.py test`
+
+### Frontend
+
+`cd frontend`
+`npm test`
