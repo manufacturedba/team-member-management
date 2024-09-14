@@ -9,3 +9,12 @@ class Member(models.Model):
     last_name = models.CharField(max_length=3000)
     email = models.EmailField()
     phone_number = models.CharField(max_length=3000)
+    ROLE_OPTIONS = [
+        ('admin', 'Admin'),
+        ('user', 'User'),
+    ]
+    role = models.CharField(
+        max_length=3000,
+        choices=ROLE_OPTIONS,
+        default='user',
+    )
