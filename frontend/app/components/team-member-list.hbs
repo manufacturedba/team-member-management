@@ -5,10 +5,11 @@
     <hr />
     {{#each @members as |member|}}
     <li data-test-member-name>
-        {{member.first_name}} {{member.last_name}}
-        {{#if (this.isAdmin member)}}
-        ({{member.role}})
-        {{/if}}
+        <LinkTo @route="edit" @model={{member.id}}>{{member.first_name}} {{member.last_name}}
+            {{#if (this.isAdmin member)}}
+            ({{member.role}})
+            {{/if}}
+        </LinkTo>
     </li>
     <li data-test-member-phone-number>{{member.phone_number}}</li>
     <li data-test-member-email>{{member.email}}</li>

@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
-import type { MemberModel } from 'frontend/types/member-model';
+import type { MemberModelFields } from 'frontend/types/member-model';
 
 export interface TeamMemberListSignature {
   // The arguments accepted by the component
   Args: {
-    members: MemberModel[];
+    members: MemberModelFields[];
   };
   // Any blocks yielded by the component
   Blocks: {
@@ -15,7 +15,7 @@ export interface TeamMemberListSignature {
 }
 
 export default class TeamMemberList extends Component<TeamMemberListSignature> {
-  isAdmin = (member: MemberModel['fields']) => {
+  isAdmin = (member: MemberModelFields) => {
     return member.role === 'admin';
   };
 }
