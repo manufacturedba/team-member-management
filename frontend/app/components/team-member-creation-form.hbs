@@ -2,22 +2,22 @@
     <h2>Info</h2>
     <div>
         <label for="first_name">First Name</label>
-        <Input id="first_name" @type="text" @value={{this.first_name}} />
+        <Input data-test-first-name-input id="first_name" @type="text" @value={{this.first_name}} />
     </div>
 
     <div>
         <label for="last_name">Last Name</label>
-        <Input id="last_name" @type="text" @value={{this.last_name}} />
+        <Input data-test-last-name-input id="last_name" @type="text" @value={{this.last_name}} />
     </div>
 
     <div>
         <label for="email">Email</label>
-        <Input id="email" @type="text" @value={{this.email}} />
+        <Input data-test-email-input id="email" @type="text" @value={{this.email}} />
     </div>
 
     <div>
         <label for="phone_number">Phone Number</label>
-        <Input id="phone_number" @type="text" @value={{this.phone_number}} />
+        <Input data-test-phone-number-input id="phone_number" @type="text" @value={{this.phone_number}} />
     </div>
 
     <h2>Role</h2>
@@ -25,15 +25,17 @@
         <legend>Select a maintenance drone:</legend>
 
         <div>
-            <Input @type="radio" id="user" name="role" {{on "input" (fn this.setRole "user" )}} />
+            <Input data-test-user-radio @type="radio" id="user" name="role" {{on "input" (fn this.setRole "user" )}} />
             <label for="user">Regular - Can't delete members</label>
         </div>
 
         <div>
-            <Input @type="radio" id="admin" name="role" {{on "input" (fn this.setRole "admin" )}} />
+            <Input data-test-admin-radio @type="radio" id="admin" name="role" {{on "input" (fn this.setRole "admin"
+                )}} />
             <label for="admin">Admin - Can delete members</label>
         </div>
     </fieldset>
 
-    <button type="button" {{on "click" this.submitForm}}>Save</button>
+    <button data-test-submit-button type="button" disabled={{this.fieldsMissing}} {{on "click"
+        this.submitForm}}>Save</button>
 </form>

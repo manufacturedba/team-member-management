@@ -6,8 +6,6 @@ import type MembersService from 'frontend/services/members';
 import type RouterService from '@ember/routing/router-service';
 
 export interface TeamMemberCreationFormSignature {
-  // The arguments accepted by the component
-  Args: {};
   // Any blocks yielded by the component
   Blocks: {
     default: [];
@@ -52,6 +50,9 @@ export default class TeamMemberCreationForm extends Component<TeamMemberCreation
     }
   }
 
+  /**
+   * Sets between user or admin
+   */
   @action
   setRole(role: string) {
     this.desiredRole = role;
@@ -59,5 +60,15 @@ export default class TeamMemberCreationForm extends Component<TeamMemberCreation
 
   get adminDesired() {
     return this.desiredRole === 'admin';
+  }
+
+  get fieldsMissing() {
+    return (
+      !this.first_name ||
+      !this.last_name ||
+      !this.email ||
+      !this.phone_number ||
+      !this.desiredRole
+    );
   }
 }
