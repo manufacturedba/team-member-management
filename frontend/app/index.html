@@ -15,6 +15,7 @@
 
     <!-- server-side data stamp -->
     <meta name="store" content="{{store}}" />
+    {% csrf_token %}
   </head>
   <body>
     {{content-for "body"}}
