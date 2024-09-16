@@ -1,17 +1,17 @@
 <div>
     <LinkTo @route="add">Add new team member</LinkTo>
     <h2>Team members</h2>
-    <span>You have {{@members.length}} team members.</span>
+    <span data-test-member-count>You have {{@members.length}} team members.</span>
     <hr />
     {{#each @members as |member|}}
-    <li>
+    <li data-test-member-name>
         {{member.first_name}} {{member.last_name}}
         {{#if (this.isAdmin member)}}
         ({{member.role}})
         {{/if}}
     </li>
-    <li>{{member.phone_number}}</li>
-    <li>{{member.email}}</li>
+    <li data-test-member-phone-number>{{member.phone_number}}</li>
+    <li data-test-member-email>{{member.email}}</li>
     <hr />
     {{/each}}
 </div>
