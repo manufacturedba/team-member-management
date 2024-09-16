@@ -1,11 +1,11 @@
 import Route from '@ember/routing/route';
-import { readStore } from 'frontend/util/read-store';
-import type { MemberModel } from 'frontend/types/member-model';
+import { service } from '@ember/service';
+import type MembersService from 'frontend/services/members';
 
 export default class ListRoute extends Route {
-  model() {
-    const rawModels = readStore(document);
+  @service('members') declare membersService: MembersService;
 
-    return rawModels.map((rawModel: MemberModel) => rawModel.fields);
+  model() {
+    return this.membersService.fetch();
   }
 }

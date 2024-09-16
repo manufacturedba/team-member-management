@@ -4,7 +4,12 @@
     <span>You have {{@members.length}} team members.</span>
     <hr />
     {{#each @members as |member|}}
-    <li>{{member.first_name}} {{member.last_name}}</li>
+    <li>
+        {{member.first_name}} {{member.last_name}}
+        {{#if (this.isAdmin member)}}
+        ({{member.role}})
+        {{/if}}
+    </li>
     <li>{{member.phone_number}}</li>
     <li>{{member.email}}</li>
     <hr />

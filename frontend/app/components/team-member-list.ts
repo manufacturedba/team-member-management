@@ -14,4 +14,8 @@ export interface TeamMemberListSignature {
   Element: null;
 }
 
-export default class TeamMemberList extends Component<TeamMemberListSignature> {}
+export default class TeamMemberList extends Component<TeamMemberListSignature> {
+  isAdmin = (member: MemberModel['fields']) => {
+    return member.role === 'admin';
+  };
+}

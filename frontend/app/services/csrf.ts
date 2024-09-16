@@ -1,16 +1,16 @@
 import Service from '@ember/service';
 
 export default class CsrfService extends Service {
-  get token() : string | null {
+  get token(): string | null {
     const entries = document.cookie.split(';');
-    
+
     for (const entry of entries) {
       const [name, value] = entry.split('=');
       if (name?.trim() === 'csrftoken') {
         return value || null;
       }
     }
-    
+
     return null;
   }
 }

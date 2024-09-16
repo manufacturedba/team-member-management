@@ -2,7 +2,8 @@ import { action } from '@ember/object';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import type CsrfService from 'frontend/services/csrf';
+import type MembersService from 'frontend/services/members';
+import type RouterService from '@ember/routing/router-service';
 
 export interface TeamMemberCreationFormSignature {
   // The arguments accepted by the component
@@ -21,41 +22,41 @@ export default class TeamMemberCreationForm extends Component<TeamMemberCreation
 
   @tracked
   last_name = '';
-  
+
   @tracked
   email = '';
-  
+
   @tracked
   phone_number = '';
-  
+
   @tracked
   desiredRole = '';
-  
-  @service declare csrf: CsrfService;
-  
+
+  @service('members') declare membersService: MembersService;
+
+  @service('router') declare router: RouterService;
+
   @action
-  submitForm() {
-    fetch('/api/members', {
-      method: 'PUT',
-      headers: {
-        'X-CSRFToken': this.csrf.token,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+  async submitForm() {
+    try {
+      await this.membersService.add({
         first_name: this.first_name,
         last_name: this.last_name,
         email: this.email,
-        phone_number : this.phone_number,
+        phone_number: this.phone_number,
         role: this.desiredRole,
-      }),
-    });
+      });
+      this.router.transitionTo('list');
+    } catch (error) {
+      console.error('Failed to add team member', error);
+    }
   }
-  
+
   @action
   setRole(role: string) {
     this.desiredRole = role;
   }
-  
+
   get adminDesired() {
     return this.desiredRole === 'admin';
   }

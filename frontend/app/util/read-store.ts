@@ -1,9 +1,11 @@
-export function readStore(doc: Document): Array | null {
+import type { MemberModel } from 'frontend/types/member-model';
+
+export function readStore(doc: Document): MemberModel[] | null {
   const metaElement = doc.querySelector(
     'meta[name="store"]',
   ) as HTMLMetaElement;
 
-  if (!metaElement) {
+  if (!metaElement || !metaElement.content) {
     return null;
   }
 

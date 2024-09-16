@@ -21,21 +21,19 @@
     </div>
 
     <h2>Role</h2>
-    <div>
-        <fieldset>
-            <legend>Select a maintenance drone:</legend>
+    <fieldset>
+        <legend>Select a maintenance drone:</legend>
 
-            <div>
-                <Input @type="radio" id="user" name="role" {{on "input" (fn this.setRole "user" )}} />
-                <label for="user">Regular - Can't delete members</label>
-            </div>
+        <div>
+            <Input @type="radio" id="user" name="role" {{on "input" (fn this.setRole "user" )}} />
+            <label for="user">Regular - Can't delete members</label>
+        </div>
 
-            <div>
-                <Input @type="radio" id="admin" name="role" {{on "input" (fn this.setRole "admin" )}} />
-                <label for="admin">Admin - Can delete members</label>
-            </div>
-        </fieldset>
-    </div>
+        <div>
+            <Input @type="radio" id="admin" name="role" {{on "input" (fn this.setRole "admin" )}} />
+            <label for="admin">Admin - Can delete members</label>
+        </div>
+    </fieldset>
 
     <button type="button" {{on "click" this.submitForm}}>Save</button>
 </form>
