@@ -1,7 +1,7 @@
 from django.test import RequestFactory, TestCase
 
-from .views import ListView, AddView
-from .api import get_team_member, add_team_member
+from .views import ListView, EmptyContextView
+from .api import get_team_members, add_team_member
 from .models import Member
 
 class TestViews(TestCase):
@@ -21,9 +21,9 @@ class TestViews(TestCase):
         context = view.get_context_data()
         self.assertIn("store", context)
         
-    def test_template_for_add_view(self):
+    def test_template_for_empty_context_view(self):
         request = RequestFactory().get("/")
-        view = AddView()
+        view = EmptyContextView()
         view.setup(request)
 
         template_name = view.get_template_names()
@@ -34,8 +34,8 @@ class TestAPI(TestCase):
     def setUpTestData(cls):
         Member.objects.create(first_name="J", last_name="D", email="jd@is.com", phone_number="5554567890", role="admin")
         
-    def test_get_team_member(self):
-        response = get_team_member()
+    def test_get_team_members(self):
+        response = get_team_members()
         
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"J", response.content)

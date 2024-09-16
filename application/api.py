@@ -5,7 +5,7 @@ import json
 
 from .models import Member
 
-def get_team_member():
+def get_team_members():
     try:
         return HttpResponse(serialize("json", Member.objects.all()), status=200)
     except Exception as e:
@@ -30,7 +30,7 @@ def add_team_member(request):
     
 def handler(request):
     if request.method == "GET":
-        return get_team_member()
+        return get_team_members()
     elif request.method == "PUT":
         return add_team_member(request)
     else:
