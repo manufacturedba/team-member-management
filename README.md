@@ -13,7 +13,7 @@
 ---
 `source .envrc` to set environment variables needed by server and frontend scripts
 
-`./install`
+`./scripts/install`
 
 ## Seeding database
 
@@ -27,7 +27,7 @@ As a first-time setup, tables need to be generated for both the application and 
 
 Creates a production build of the frontend
     
-`./build`
+`./scripts/build`
 
 # Running
 
@@ -43,7 +43,7 @@ In order to have frontend regenerate files, run commands from within the `fronte
 
 Tests are broken up into server-side model and view tests and client-side presentational tests. They are in `application/tests.py` and `frontend/tests/` respectively.
 
-`./test`
+`./scripts/test`
 
 Alternatively, run test suites individually
 
