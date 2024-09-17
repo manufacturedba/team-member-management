@@ -1,10 +1,10 @@
 export type MemberModelFields = {
-  first_name: string | undefined;
-  last_name: string | undefined;
-  email: string | undefined;
-  phone_number: string | undefined;
-  role: string | undefined;
-  id: number | null;
+  first_name?: string;
+  last_name?: string;
+  email?: string;
+  phone_number?: string;
+  role?: string;
+  id?: number;
 };
 
 export type MemberModel = {

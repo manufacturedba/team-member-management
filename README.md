@@ -1,34 +1,48 @@
 # Overview
 
-`project/` directory contains typical Django project structure.
+`project/` directory contains a typical Django project structure and general settings.
 `application/` directory contains backend application code
-`frontend/` directory is client-code for SPA
+`frontend/` directory is client-code for web application
 
 # Installing
 
-`pip install -r requirements.txt`
+## (optional) Set up virtual environment
+`python -m venv venv`
+---
+`source .envrc` to set environment variables needed by server and frontend scripts
+
+`./install`
 
 ## Seeding database
 
 As a first-time setup, tables need to be generated for both the application and admin
 
 `python manage.py migrate`
+
 `./seed-db` Populates some initial members
+
+## Build
+
+Creates a production build of the frontend
+    
+`./build`
 
 # Running
 
-`source .envrc` to set environment variables needed by server and frontend
 `python manage.py runserver`
+
+In order to have frontend regenerate files, run commands from within the `frontend` directory
+
+`npm start`
 
 # Testing
 
 Tests are broken up into server-side model and view tests and client-side presentational tests. They are in `application/tests.py` and `frontend/tests/` respectively.
 
-### Server-side
+`./test`
 
-`python manage.py test`
+Alternatively, run test suites individually
 
-### Frontend
+`python manage.py test application`
 
-`cd frontend`
-`npm test`
+`npm test` Run from frontend directory
