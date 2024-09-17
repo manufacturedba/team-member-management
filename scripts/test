@@ -1,0 +1,6 @@
+#!/bin/bash
+
+python manage.py test
+
+cd frontend
+npm run test

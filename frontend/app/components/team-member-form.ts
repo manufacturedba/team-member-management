@@ -47,7 +47,6 @@ class TrackableMember {
     this.email = member?.email || '';
     this.phone_number = member?.phone_number || '';
     this.role = member?.role || 'user';
-    this.id = member?.id || null;
   }
 
   asObject(): MemberModelFields {
@@ -57,7 +56,6 @@ class TrackableMember {
       email: this.email,
       phone_number: this.phone_number,
       role: this.role,
-      id: this.id,
     };
   }
 }
