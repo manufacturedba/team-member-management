@@ -33,6 +33,8 @@ Creates a production build of the frontend
 
 `python manage.py runserver`
 
+Application will be available at `http://localhost:8000`
+
 In order to have frontend regenerate files, run commands from within the `frontend` directory
 
 `npm start`
