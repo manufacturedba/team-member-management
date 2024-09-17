@@ -1,7 +1,9 @@
 # Overview
 
 `project/` directory contains a typical Django project structure and general settings.
+
 `application/` directory contains backend application code
+
 `frontend/` directory is client-code for web application
 
 # Installing
